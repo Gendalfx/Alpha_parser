@@ -36,10 +36,19 @@ def send_to_telegram(text):
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
         "text": text,
-        "parse_mode": "HTML",
-        "message_thread_id": int(TELEGRAM_TOPIC_ID)
+        "parse_mode": "HTML"
     }
-    requests.post(url, json=payload)
+
+    # Добавляем message_thread_id только если переменная задана
+    if TELEGRAM_TOPIC_ID:
+        try:
+            payload["message_thread_id"] = int(TELEGRAM_TOPIC_ID)
+        except ValueError:
+            print("Warning: TELEGRAM_TOPIC_ID не является числом, отправка в тему пропущена.")
+
+    response = requests.post(url, json=payload)
+    if not response.ok:
+        print(f"Ошибка отправки сообщения: {response.text}")
 
 def main():
     last_id = load_last_id()
