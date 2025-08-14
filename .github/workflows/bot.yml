@@ -2,7 +2,7 @@ name: Binance Alpha Bot
 
 on:
   schedule:
-    - cron: "*/1 * * * *"  # каждая минута
+    - cron: "*/5 * * * *"  # каждая минута
   workflow_dispatch:       # возможность запустить вручную
 
 jobs:
