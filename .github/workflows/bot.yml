@@ -1,0 +1,17 @@
+name: Binance Alpha Bot
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"  # каждая минута
+  workflow_dispatch:       # возможность запустить вручную
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - run: pip install -r requirements.txt
+      - run: python bot.py
