@@ -5,9 +5,9 @@ import requests
 from datetime import datetime
 
 # Конфиги из GitHub Secrets
-TELEGRAM_TOKEN = os.getenv("8422033097:AAGBBAiq0rQX8tFX6m_1itOtyxBCTXdyea4")
-TELEGRAM_CHAT_ID = os.getenv("-1002787683022")
-TELEGRAM_TOPIC_ID = os.getenv("2")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+TELEGRAM_TOPIC_ID = os.getenv("TELEGRAM_TOPIC_ID")
 
 # RSS-лента Binance Twitter (замени на свою с rss.app)
 RSS_URL = "https://rss.app/feeds/BqToAxij0vGj5J4J.xml"
